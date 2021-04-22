@@ -1,0 +1,24 @@
+@import '../styles/global.scss';
+
+.social-links {
+	a {
+		margin-right: 15px;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		svg {
+			fill: $blue;
+			width: 20px;
+			height: 20px;
+			transition: fill ease-in-out 0.2s,
+				transform cubic-bezier(0.4, 0, 0.6, 2.8) 0.2s;
+
+			&:hover {
+				transform: rotate(25deg);
+				transition: fill ease-in-out 0.2s, transform ease-in 0.2s;
+			}
+		}
+	}
+}

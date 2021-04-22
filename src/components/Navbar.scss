@@ -1,0 +1,60 @@
+@import '../styles/global.scss';
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 0;
+	background-color: transparent;
+	transition: all ease-in-out 0.2s;
+	z-index: 2;
+
+	.max-width {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@media screen and (max-width: $small) {
+			justify-content: flex-end;
+		}
+
+		.social-links {
+			svg {
+				width: 20px;
+				height: 20px;
+				fill: $blue;
+			}
+
+			@media screen and (max-width: $small) {
+				display: none;
+			}
+		}
+
+		.menu {
+			display: flex;
+
+			li {
+				margin-right: 1.5em;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+
+				a {
+					font-size: 1.2em;
+					font-weight: 300;
+					color: $blue;
+					text-decoration: none;
+					transition: color ease-in 0.2s;
+
+					&.active,
+					&:hover {
+						color: $blueDark;
+						transition: color ease-out 0.2s;
+					}
+				}
+			}
+		}
+	}
+}

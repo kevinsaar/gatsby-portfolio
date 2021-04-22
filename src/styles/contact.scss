@@ -1,0 +1,28 @@
+@import './global.scss';
+
+.contact {
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	text-align: center;
+	color: $blueDark;
+	font-weight: 300;
+	font-size: clamp(1.2em, calc(1.0857em + 0.5714vw), 2em);
+	padding: 0 20px;
+
+	h1 {
+		font-size: clamp(2em, calc(1.6429em + 1.7857vw), 4.5em);
+		margin-bottom: 0.25em;
+		color: $blue;
+	}
+
+	p {
+		margin-bottom: 20px;
+	}
+
+	.social-links {
+		svg {
+			fill: $blue;
+		}
+	}
+}

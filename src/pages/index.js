@@ -1,19 +1,22 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import Layout from '../components/Layout';
+import About from '../components/About';
+import Hero from '../components/Hero';
+import LatestProjects from '../components/LatestProjects';
 
-// styles
-const pageStyles = {
-	color: '#232129',
-	padding: 96,
-	fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
-
-// markup
 const IndexPage = () => {
 	return (
-		<main style={pageStyles}>
-			<title>Kevin Saar | Frontend developer</title>
-			<h1>Home page</h1>
-		</main>
+		<Layout>
+			<Helmet>
+				<title>Kevin Saar | Frontend developer</title>
+			</Helmet>
+			<main>
+				<Hero />
+				<About />
+				<LatestProjects />
+			</main>
+		</Layout>
 	);
 };
 
