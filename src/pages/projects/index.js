@@ -1,21 +1,23 @@
+import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/Layout';
 import ProjectCard from '../../components/ProjectCard';
 import '../../styles/projects.scss';
 
-const filters = ['all', 'work', 'personal'];
+const Projects = ({ data }) => {
+	const projects = data.allContentfulProject.nodes;
+	const categories = data.allContentfulCategory.nodes;
 
-const Projects = () => {
-	const [activeFilter, setActiveFilter] = useState('all');
+	const [activeFilter, setActiveFilter] = useState('All');
 
-	const filterButtons = filters.map((filter, index) => (
+	const filterButtons = categories.map((category) => (
 		<button
-			className={activeFilter === filter ? 'active' : ''}
-			key={index}
-			onClick={() => setActiveFilter(filter)}
+			className={activeFilter === category.title ? 'active' : ''}
+			key={category.id}
+			onClick={() => setActiveFilter(category.title)}
 		>
-			{filter}
+			{category.title}
 		</button>
 	));
 
@@ -40,10 +42,9 @@ const Projects = () => {
 						</p>
 						<div className='filter'>{filterButtons}</div>
 						<ul className='projects-wrap'>
-							<ProjectCard />
-							<ProjectCard />
-							<ProjectCard />
-							<ProjectCard />
+							{projects.map((project) => (
+								<ProjectCard project={project} key={project.id} />
+							))}
 						</ul>
 					</section>
 				</div>
@@ -53,3 +54,48 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export const query = graphql`
+	query AllProjects {
+		allContentfulProject(sort: { fields: finishDate }) {
+			nodes {
+				id
+				finishDate
+				projectSiteUrl
+				slug
+				title
+				imageGallery {
+					file {
+						url
+					}
+					title
+				}
+				featuredImage {
+					title
+					file {
+						url
+					}
+				}
+				description {
+					raw
+				}
+				categories {
+					title
+					id
+				}
+				logo {
+					title
+					file {
+						url
+					}
+				}
+			}
+		}
+		allContentfulCategory(sort: { fields: createdAt }) {
+			nodes {
+				title
+				id
+			}
+		}
+	}
+`;

@@ -1,29 +1,36 @@
 import React from 'react';
 import './ProjectCard.scss';
-import projectCover from '../images/promoware.png';
-import projectLogo from '../images/promoLogo.png';
 import { AiOutlineEye, AiOutlineLink, AiOutlineGithub } from 'react-icons/ai';
 import { Link } from 'gatsby';
 
-const categories = ['All', 'Work', 'Personal'];
+const ProjectCard = ({ project }) => {
+	const categoriesList = project.categories
+		.filter((cat) => cat.title !== 'All')
+		.map((cat) => <li key={cat.id}>{cat.title}</li>);
 
-const ProjectCard = () => {
-	const categoriesList = categories
-		.filter((cat) => cat !== 'All')
-		.map((cat, index) => <li key={index}>{cat}</li>);
 	return (
 		<figure className='project-card'>
-			<img className='bg' src={projectCover} alt='project title' />
-			<img className='logo' src={projectLogo} alt='Client(promoware) logo' />
+			<img
+				className='bg'
+				src={project.featuredImage.file.url}
+				alt={project.title}
+			/>
+			<img
+				className='logo'
+				src={project.logo.file.url}
+				alt={project.logo.title}
+			/>
 			<ul className='category'>{categoriesList}</ul>
 			<figcaption>
-				<a href='https://promoware.eu' target='_blank' rel='noreferrer'>
+				<a href={project.projectSiteUrl} target='_blank' rel='noreferrer'>
 					<AiOutlineEye />
 				</a>
-				<a href='https://github.com' target='_blank' rel='noreferrer'>
-					<AiOutlineGithub />
-				</a>
-				<Link to='/'>
+				{project.githubCode && (
+					<a href='https://github.com' target='_blank' rel='noreferrer'>
+						<AiOutlineGithub />
+					</a>
+				)}
+				<Link to={'/projects/' + project.slug}>
 					<AiOutlineLink />
 				</Link>
 			</figcaption>

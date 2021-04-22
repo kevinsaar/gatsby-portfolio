@@ -1,0 +1,22 @@
+* {
+	position: relative;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	line-height: 1;
+	vertical-align: baseline;
+}
+ol,
+ul {
+	list-style: none;
+}
+input,
+textarea,
+button,
+select,
+a {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

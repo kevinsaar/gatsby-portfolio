@@ -1,3 +1,7 @@
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
 	siteMetadata: {
 		title: 'Kevin Saar | Frontend developer',
@@ -25,6 +29,13 @@ module.exports = {
 				path: './src/images/',
 			},
 			__key: 'images',
+		},
+		{
+			resolve: `gatsby-source-contentful`,
+			options: {
+				spaceId: process.env.CONTENTFUL_SPACE_ID,
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+			},
 		},
 	],
 };
