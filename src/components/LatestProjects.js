@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import './LatestProjects.scss';
-import Project from './Project';
+import ProjectCard from './ProjectCard';
 
 const LatestProjects = () => {
 	return (
@@ -22,8 +22,8 @@ const LatestProjects = () => {
 						Latest <b>projects</b>
 					</h2>
 					<div className='latest-wrap'>
-						<Project />
-						<Project />
+						<ProjectCard />
+						<ProjectCard />
 					</div>
 					<Link to='/projects'>All projects</Link>
 				</div>

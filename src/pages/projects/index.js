@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/Layout';
-import Project from '../../components/Project';
+import ProjectCard from '../../components/ProjectCard';
 import '../../styles/projects.scss';
 
 const filters = ['all', 'work', 'personal'];
@@ -40,10 +40,10 @@ const Projects = () => {
 						</p>
 						<div className='filter'>{filterButtons}</div>
 						<ul className='projects-wrap'>
-							<Project />
-							<Project />
-							<Project />
-							<Project />
+							<ProjectCard />
+							<ProjectCard />
+							<ProjectCard />
+							<ProjectCard />
 						</ul>
 					</section>
 				</div>

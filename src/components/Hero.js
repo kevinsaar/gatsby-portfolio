@@ -2,6 +2,7 @@ import React from 'react';
 import './Hero.scss';
 import SocialLinks from './SocialLinks';
 import HeroSVG from './HeroSVG';
+import Typical from 'react-typical';
 
 const Hero = () => {
 	return (
@@ -14,11 +15,11 @@ const Hero = () => {
 					<p>
 						I am a motivated front-end web developer who specializes in
 						developing websites that are{' '}
-						{/*<Typical
+						<Typical
 							steps={['impactful!', 3000, 'engaging!', 3000, 'stunning!', 3000]}
 							loop={Infinity}
 							wrapper='span'
-						/>*/}
+						/>
 					</p>
 					<SocialLinks
 						github='https://github.com/kevinsaar'
