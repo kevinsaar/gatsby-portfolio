@@ -9,6 +9,11 @@ const Contact = () => {
 		<Layout>
 			<Helmet>
 				<title>Contact page</title>
+				<meta
+					name='description'
+					content='A portfolio site for a frontend developer using Gatsby. Contact me anytime!'
+				/>
+				<html lang='en' amp />
 			</Helmet>
 			<main>
 				<section className='contact max-width'>

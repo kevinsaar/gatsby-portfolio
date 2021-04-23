@@ -10,6 +10,11 @@
 	transition: all ease-in-out 0.2s;
 	z-index: 2;
 
+	&.moved {
+		background-color: rgba(174, 242, 255, 0.85);
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 5px 2px;
+	}
+
 	.max-width {
 		display: flex;
 		justify-content: space-between;
@@ -35,7 +40,7 @@
 			display: flex;
 
 			li {
-				margin-right: 1.5em;
+				margin-right: 10px;
 
 				&:last-of-type {
 					margin-right: 0;
@@ -44,14 +49,21 @@
 				a {
 					font-size: 1.2em;
 					font-weight: 300;
-					color: $blue;
+					color: $blueDark;
 					text-decoration: none;
-					transition: color ease-in 0.2s;
+					transition: all ease-in 0.2s;
+					border-radius: 20px;
+					padding: 5px 15px;
 
-					&.active,
+					&.active {
+						background-color: $white;
+						box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 2px;
+						transition: all ease-out 0.2s;
+					}
+
 					&:hover {
-						color: $blueDark;
-						transition: color ease-out 0.2s;
+						background-color: $white;
+						transition: all ease-out 0.2s;
 					}
 				}
 			}

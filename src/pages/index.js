@@ -10,6 +10,11 @@ const IndexPage = () => {
 		<Layout>
 			<Helmet>
 				<title>Kevin Saar | Frontend developer</title>
+				<meta
+					name='description'
+					content='A portfolio site for a frontend developer using Gatsby. Check it out!'
+				/>
+				<html lang='en' amp />
 			</Helmet>
 			<main>
 				<Hero />

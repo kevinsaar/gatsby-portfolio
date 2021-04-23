@@ -30,6 +30,11 @@ const Projects = ({ data }) => {
 			<main>
 				<Helmet>
 					<title>All projects</title>
+					<meta
+						name='description'
+						content='A portfolio site for a frontend developer using Gatsby. Here are all my done  projects.'
+					/>
+					<html lang='en' amp />
 				</Helmet>
 				<div className='max-width'>
 					<section className='projects'>

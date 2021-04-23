@@ -3,11 +3,6 @@ import { Link } from 'gatsby';
 import SocialLinks from './SocialLinks';
 import './Navbar.scss';
 
-const navStyle = {
-	backgroundColor: 'rgb(255, 255, 255, 0.85)',
-	boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0px 5px 2px',
-};
-
 const Navbar = () => {
 	const [pageYOffset, setpageYOffset] = useState(null);
 
@@ -23,7 +18,7 @@ const Navbar = () => {
 	}, [pageYOffset]);
 
 	return (
-		<nav className='navbar' style={pageYOffset > 10 ? navStyle : null}>
+		<nav className={`navbar ${pageYOffset > 10 ? 'moved' : ''}`}>
 			<div className='max-width'>
 				<SocialLinks
 					github='https://github.com/kevinsaar'
@@ -32,13 +27,19 @@ const Navbar = () => {
 				/>
 				<ul className='menu'>
 					<li>
-						<Link to='/'>Home</Link>
+						<Link to='/' activeClassName='active'>
+							Home
+						</Link>
 					</li>
 					<li>
-						<Link to='/projects'>Projects</Link>
+						<Link to='/projects' activeClassName='active'>
+							Projects
+						</Link>
 					</li>
 					<li>
-						<Link to='/contact'>Contact</Link>
+						<Link to='/contact' activeClassName='active'>
+							Contact
+						</Link>
 					</li>
 				</ul>
 			</div>
