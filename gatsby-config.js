@@ -7,6 +7,7 @@ module.exports = {
 		title: 'Kevin Saar | Frontend developer',
 		description:
 			'A portfolio site for a frontend developer using Gatsby. Check it out!',
+		siteUrl: 'https://kevinsaar.gatsbyjs.io',
 	},
 	plugins: [
 		'gatsby-plugin-sass',
