@@ -12,19 +12,23 @@ const ProjectCard = ({ project }) => {
 		<figure className='project-card'>
 			<img
 				className='bg'
-				src={project.featuredImage.file.url}
+				src={project.featuredImage.fluid.src}
 				alt={project.title}
 			/>
-			<img
-				className='logo'
-				src={project.logo.file.url}
-				alt={project.logo.title}
-			/>
+			{project.logo && (
+				<img
+					className='logo'
+					src={project.logo.fluid.src}
+					alt={project.logo.title}
+				/>
+			)}
 			<ul className='category'>{categoriesList}</ul>
 			<figcaption>
-				<a href={project.projectSiteUrl} target='_blank' rel='noreferrer'>
-					<AiOutlineEye />
-				</a>
+				{project.projectSiteUrl && (
+					<a href={project.projectSiteUrl} target='_blank' rel='noreferrer'>
+						<AiOutlineEye />
+					</a>
+				)}
 				{project.githubCode && (
 					<a href='https://github.com' target='_blank' rel='noreferrer'>
 						<AiOutlineGithub />

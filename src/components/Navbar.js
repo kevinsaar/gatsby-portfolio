@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import SocialLinks from './SocialLinks';
 import './Navbar.scss';
 
@@ -17,13 +17,23 @@ const Navbar = () => {
 		};
 	}, [pageYOffset]);
 
+	const { contentfulSocialLinks: social } = useStaticQuery(graphql`
+		query NavSocial {
+			contentfulSocialLinks {
+				gitHub
+				email
+				linkedIn
+			}
+		}
+	`);
+
 	return (
 		<nav className={`navbar ${pageYOffset > 10 ? 'moved' : ''}`}>
 			<div className='max-width'>
 				<SocialLinks
-					github='https://github.com/kevinsaar'
-					mail='kevinolisiin@gmail.com'
-					linkedIn='https://www.linkedin.com/in/kevin-saar/'
+					github={social.gitHub}
+					mail={social.email}
+					linkedIn={social.linkedIn}
 				/>
 				<ul className='menu'>
 					<li>

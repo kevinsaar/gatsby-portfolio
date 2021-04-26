@@ -6,6 +6,7 @@ import ProjectCard from '../../components/ProjectCard';
 import '../../styles/projects.scss';
 
 const Projects = ({ data }) => {
+	const { description, title } = data.allContentfulAllProjectsPage.nodes[0];
 	const projects = data.allContentfulProject.nodes;
 	const categories = data.allContentfulCategory.nodes;
 
@@ -34,17 +35,15 @@ const Projects = ({ data }) => {
 						name='description'
 						content='A portfolio site for a frontend developer using Gatsby. Here are all my done  projects.'
 					/>
-					<html lang='en' amp />
+					<html lang='en' />
 				</Helmet>
 				<div className='max-width'>
 					<section className='projects'>
 						<h2>
-							Done <b>work</b>
+							{title.normal}
+							<b> {title.colorful}</b>
 						</h2>
-						<p>
-							Here's a presentation of past work done for clients as well some
-							personal projects.
-						</p>
+						<p>{description}</p>
 						<div className='filter'>{filterButtons}</div>
 						<ul className='projects-wrap'>
 							{projects.map((project) => (
@@ -62,6 +61,15 @@ export default Projects;
 
 export const query = graphql`
 	query AllProjects {
+		allContentfulAllProjectsPage {
+			nodes {
+				description
+				title {
+					normal
+					colorful
+				}
+			}
+		}
 		allContentfulProject(sort: { fields: finishDate }) {
 			nodes {
 				id
@@ -70,15 +78,21 @@ export const query = graphql`
 				slug
 				title
 				imageGallery {
-					file {
-						url
+					fluid {
+						...GatsbyContentfulFluid
+					}
+					title
+				}
+				logo {
+					fluid {
+						...GatsbyContentfulFluid
 					}
 					title
 				}
 				featuredImage {
 					title
-					file {
-						url
+					fluid {
+						...GatsbyContentfulFluid
 					}
 				}
 				description {
@@ -87,12 +101,6 @@ export const query = graphql`
 				categories {
 					title
 					id
-				}
-				logo {
-					title
-					file {
-						url
-					}
 				}
 			}
 		}

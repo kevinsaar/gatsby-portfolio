@@ -1,9 +1,58 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import './LatestProjects.scss';
-//import ProjectCard from './ProjectCard';
+import ProjectCard from './ProjectCard';
 
 const LatestProjects = () => {
+	const data = useStaticQuery(graphql`
+		query LatestProjects {
+			allContentfulHomepage {
+				edges {
+					node {
+						allProjectsLink
+						latestProjectsTitle {
+							normal
+							colorful
+						}
+						latestProjects {
+							id
+							slug
+							projectSiteUrl
+							logo {
+								fluid {
+									...GatsbyContentfulFluid
+								}
+								title
+							}
+							featuredImage {
+								title
+								fluid {
+									...GatsbyContentfulFluid
+								}
+							}
+							categories {
+								id
+								title
+							}
+						}
+					}
+				}
+			}
+		}
+	`);
+
+	const {
+		allProjectsLink,
+		latestProjectsTitle,
+	} = data.allContentfulHomepage.edges[0].node;
+
+	const latestProjects =
+		data.allContentfulHomepage.edges[0].node.latestProjects;
+
+	const latestProjectsList = latestProjects.map((project) => (
+		<ProjectCard project={project} key={project.id} />
+	));
+
 	return (
 		<section className='latest-projects'>
 			<div className='max-width'>
@@ -19,13 +68,11 @@ const LatestProjects = () => {
 						<span>S</span>
 					</span>
 					<h2>
-						Latest <b>projects</b>
+						{latestProjectsTitle.normal}
+						<b> {latestProjectsTitle.colorful}</b>
 					</h2>
-					<div className='latest-wrap'>
-						{/*<ProjectCard project={project} />
-						<ProjectCard project={project} />*/}
-					</div>
-					<Link to='/projects'>All projects</Link>
+					<div className='latest-wrap'>{latestProjectsList}</div>
+					<Link to='/projects'>{allProjectsLink}</Link>
 				</div>
 			</div>
 		</section>

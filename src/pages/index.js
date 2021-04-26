@@ -14,7 +14,7 @@ const IndexPage = () => {
 					name='description'
 					content='A portfolio site for a frontend developer using Gatsby. Check it out!'
 				/>
-				<html lang='en' amp />
+				<html lang='en' />
 			</Helmet>
 			<main>
 				<Hero />
