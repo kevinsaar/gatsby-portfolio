@@ -22,7 +22,7 @@ const ProjectCard = ({ project }) => {
 					alt={project.logo.title}
 				/>
 			)}
-			<ul className='category'>{categoriesList}</ul>
+			{categoriesList && <ul className='category'>{categoriesList}</ul>}
 			<figcaption>
 				{project.projectSiteUrl && (
 					<a href={project.projectSiteUrl} target='_blank' rel='noreferrer'>

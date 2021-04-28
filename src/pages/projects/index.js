@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import Layout from '../../components/Layout';
 import ProjectCard from '../../components/ProjectCard';
+import Seo from '../../components/Seo';
 import '../../styles/projects.scss';
 
 const Projects = ({ data }) => {
@@ -28,15 +28,11 @@ const Projects = ({ data }) => {
 
 	return (
 		<Layout>
+			<Seo
+				title={`${title.normal} ${title.colorful}`}
+				description='Here are some examples of projects that I have done, personal and work related.'
+			/>
 			<main>
-				<Helmet>
-					<title>All projects</title>
-					<meta
-						name='description'
-						content='A portfolio site for a frontend developer using Gatsby. Here are all my done  projects.'
-					/>
-					<html lang='en' />
-				</Helmet>
 				<div className='max-width'>
 					<section className='projects'>
 						<h2>

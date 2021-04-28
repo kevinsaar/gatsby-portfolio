@@ -16,6 +16,7 @@ const LatestProjects = () => {
 						}
 						latestProjects {
 							id
+							title
 							slug
 							projectSiteUrl
 							logo {

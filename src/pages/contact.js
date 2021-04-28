@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import SocialLinks from '../components/SocialLinks';
 import '../styles/contact.scss';
+import Seo from '../components/Seo';
 
 const Contact = ({ data }) => {
 	const {
@@ -14,14 +14,7 @@ const Contact = ({ data }) => {
 
 	return (
 		<Layout>
-			<Helmet>
-				<title>Contact page</title>
-				<meta
-					name='description'
-					content='A portfolio site for a frontend developer using Gatsby. Contact me anytime!'
-				/>
-				<html lang='en' />
-			</Helmet>
+			<Seo title={contactTitle} description={contactText.contactText} />
 			<main>
 				<section className='contact max-width'>
 					<h1>{contactTitle}</h1>
