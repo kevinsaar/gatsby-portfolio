@@ -46,7 +46,7 @@
 			border-radius: 20px;
 		}
 
-		.text {
+		.content {
 			display: grid;
 
 			h2 {
@@ -86,6 +86,10 @@
 
 					&:last-of-type {
 						margin-right: 0;
+					}
+
+					p {
+						margin-bottom: 0;
 					}
 				}
 			}
