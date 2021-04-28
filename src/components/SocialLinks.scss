@@ -16,6 +16,7 @@
 				transform cubic-bezier(0.4, 0, 0.6, 2.8) 0.2s;
 
 			&:hover {
+				fill: $blueDark;
 				transform: rotate(25deg);
 				transition: fill ease-in-out 0.2s, transform ease-in 0.2s;
 			}

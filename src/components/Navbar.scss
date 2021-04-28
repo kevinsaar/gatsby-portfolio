@@ -11,7 +11,7 @@
 	z-index: 2;
 
 	&.moved {
-		background-color: rgba(174, 242, 255, 0.85);
+		background-color: $blueLight;
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 5px 2px;
 	}
 
@@ -25,12 +25,6 @@
 		}
 
 		.social-links {
-			svg {
-				width: 20px;
-				height: 20px;
-				fill: $blue;
-			}
-
 			@media screen and (max-width: $small) {
 				display: none;
 			}
@@ -44,25 +38,23 @@
 
 				&:last-of-type {
 					margin-right: 0;
+
+					a {
+						padding-right: 0;
+					}
 				}
 
 				a {
 					font-size: 1.2em;
 					font-weight: 300;
-					color: $blueDark;
+					color: $black;
 					text-decoration: none;
 					transition: all ease-in 0.2s;
-					border-radius: 20px;
 					padding: 5px 15px;
 
-					&.active {
-						background-color: $white;
-						box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 2px;
-						transition: all ease-out 0.2s;
-					}
-
+					&.active,
 					&:hover {
-						background-color: $white;
+						color: $blue;
 						transition: all ease-out 0.2s;
 					}
 				}

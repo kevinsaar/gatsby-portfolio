@@ -5,7 +5,6 @@
 	flex-direction: column;
 	justify-content: flex-end;
 	text-align: left;
-	color: $whiteish;
 	min-height: 100vh;
 	padding: 0 20px;
 	margin-bottom: clamp(5em, calc(3.5714em + 7.1429vw), 15em);
@@ -28,25 +27,30 @@
 	h2 {
 		font-size: clamp(1.3em, calc(1.1286em + 0.8571vw), 2.5em);
 		font-weight: 600;
-		color: $blueDark;
+		color: $black;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 	}
 
 	h1 {
-		font-size: clamp(1.7em, calc(1.1571em + 2.7143vw), 5.5em);
-		color: $whiteish;
+		font-size: clamp(2.5em, calc(2.0714em + 2.1429vw), 5.5em);
+		color: $blueDark;
 		font-weight: 600;
 		margin-bottom: 0.5em;
 		letter-spacing: 0.1em;
-		text-shadow: 0 1px 0 #cccccc, 0 1px 3px rgba(0, 0, 0, 0.3),
-			0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25);
+		text-shadow: 0 1px 0 $blue, 0 1px 3px rgba(0, 0, 0, 0.3),
+			0 3px 5px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.25);
+
+		@media screen and (max-width: $medium) {
+			text-shadow: 0 1px 0 $blue, 0 0 2px rgba(0, 0, 0, 0.2),
+				0 2px 4px rgba(0, 0, 0, 0.25);
+		}
 	}
 
 	p {
 		font-size: clamp(1.2em, calc(1.1143em + 0.4286vw), 2em);
 		font-weight: 300;
-		color: $blueDark;
+		color: $black;
 		line-height: 1.2;
 		letter-spacing: 0.07em;
 		margin-bottom: 1.3em;
@@ -54,33 +58,11 @@
 		span {
 			display: inline-flex;
 			min-width: 5.3em;
-			color: $white;
+			color: $blueDark;
 			font-weight: 400;
-
-			@media screen and (max-width: $medium) {
-				color: $blue;
-			}
 
 			&::after {
 				display: none;
-			}
-		}
-	}
-
-	.social-links {
-		svg {
-			fill: $white;
-
-			@media screen and (max-width: $medium) {
-				fill: $blue;
-			}
-
-			&:hover {
-				fill: $yellow;
-
-				@media screen and (max-width: $medium) {
-					fill: $blueDark;
-				}
 			}
 		}
 	}

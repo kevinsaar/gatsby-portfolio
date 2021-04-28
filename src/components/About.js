@@ -1,7 +1,6 @@
 import React from 'react';
 import './About.scss';
 import SkillsSVG from './SkillsSVG';
-import pdf from '../../static/CV-Kevin-Saar.pdf';
 
 const About = () => {
 	return (
@@ -44,7 +43,7 @@ const About = () => {
 							At the moment <b>looking for working opportunities</b>. If you
 							might be interested have a look at my CV or contact by any means.
 						</p>
-						<a href={pdf} target='_blank' rel='noreferrer'>
+						<a href='/' target='_blank' rel='noreferrer'>
 							Look at CV
 						</a>
 					</div>

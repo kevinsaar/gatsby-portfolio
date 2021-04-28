@@ -22,6 +22,12 @@ const Projects = ({ data }) => {
 		</button>
 	));
 
+	const projectsList = projects.map((project) => (
+		<li key={project.id}>
+			<ProjectCard project={project} key={project.id} />
+		</li>
+	));
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -41,11 +47,7 @@ const Projects = ({ data }) => {
 						</h2>
 						<p>{description}</p>
 						<div className='filter'>{filterButtons}</div>
-						<ul className='projects-wrap'>
-							{projects.map((project) => (
-								<ProjectCard project={project} key={project.id} />
-							))}
-						</ul>
+						<ul className='projects-wrap'>{projectsList && projectsList}</ul>
 					</section>
 				</div>
 			</main>
@@ -73,26 +75,21 @@ export const query = graphql`
 				projectSiteUrl
 				slug
 				title
-				imageGallery {
-					fluid {
-						...GatsbyContentfulFluid
-					}
-					title
-				}
 				logo {
-					fluid {
-						...GatsbyContentfulFluid
-					}
+					gatsbyImageData(
+						placeholder: BLURRED
+						layout: FULL_WIDTH
+						formats: [AUTO, WEBP]
+					)
 					title
 				}
 				featuredImage {
 					title
-					fluid {
-						...GatsbyContentfulFluid
-					}
-				}
-				description {
-					raw
+					gatsbyImageData(
+						placeholder: BLURRED
+						layout: FULL_WIDTH
+						formats: [AUTO, WEBP]
+					)
 				}
 				categories {
 					title

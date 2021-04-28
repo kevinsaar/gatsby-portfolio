@@ -2,6 +2,7 @@ import React from 'react';
 import './ProjectCard.scss';
 import { AiOutlineEye, AiOutlineLink, AiOutlineGithub } from 'react-icons/ai';
 import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const ProjectCard = ({ project }) => {
 	const categoriesList = project.categories
@@ -10,31 +11,41 @@ const ProjectCard = ({ project }) => {
 
 	return (
 		<figure className='project-card'>
-			<img
+			<GatsbyImage
 				className='bg'
-				src={project.featuredImage.fluid.src}
-				alt={project.title}
+				image={project.featuredImage.gatsbyImageData}
+				alt={project.featuredImage.title}
 			/>
 			{project.logo && (
-				<img
+				<GatsbyImage
 					className='logo'
-					src={project.logo.fluid.src}
+					image={project.logo.gatsbyImageData}
 					alt={project.logo.title}
 				/>
 			)}
 			{categoriesList && <ul className='category'>{categoriesList}</ul>}
 			<figcaption>
 				{project.projectSiteUrl && (
-					<a href={project.projectSiteUrl} target='_blank' rel='noreferrer'>
+					<a
+						href={project.projectSiteUrl}
+						target='_blank'
+						rel='noreferrer'
+						aria-label='Projects live website'
+					>
 						<AiOutlineEye />
 					</a>
 				)}
 				{project.githubCode && (
-					<a href='https://github.com' target='_blank' rel='noreferrer'>
+					<a
+						href={project.githubCode}
+						target='_blank'
+						rel='noreferrer'
+						aria-label='Project code on GitHub'
+					>
 						<AiOutlineGithub />
 					</a>
 				)}
-				<Link to={'/projects/' + project.slug}>
+				<Link to={'/projects/' + project.slug} aria-label='Project details'>
 					<AiOutlineLink />
 				</Link>
 			</figcaption>

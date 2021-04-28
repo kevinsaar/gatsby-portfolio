@@ -20,16 +20,20 @@ const LatestProjects = () => {
 							slug
 							projectSiteUrl
 							logo {
-								fluid {
-									...GatsbyContentfulFluid
-								}
+								gatsbyImageData(
+									placeholder: BLURRED
+									layout: FULL_WIDTH
+									formats: [AUTO, WEBP]
+								)
 								title
 							}
 							featuredImage {
 								title
-								fluid {
-									...GatsbyContentfulFluid
-								}
+								gatsbyImageData(
+									placeholder: BLURRED
+									layout: FULL_WIDTH
+									formats: [AUTO, WEBP]
+								)
 							}
 							categories {
 								id
@@ -51,7 +55,9 @@ const LatestProjects = () => {
 		data.allContentfulHomepage.edges[0].node.latestProjects;
 
 	const latestProjectsList = latestProjects.map((project) => (
-		<ProjectCard project={project} key={project.id} />
+		<li key={project.id}>
+			<ProjectCard project={project} />
+		</li>
 	));
 
 	return (
@@ -72,7 +78,7 @@ const LatestProjects = () => {
 						{latestProjectsTitle.normal}
 						<b> {latestProjectsTitle.colorful}</b>
 					</h2>
-					<div className='latest-wrap'>{latestProjectsList}</div>
+					<ul className='latest-wrap'>{latestProjectsList}</ul>
 					<Link to='/projects'>{allProjectsLink}</Link>
 				</div>
 			</div>
