@@ -37,7 +37,6 @@
 			padding: 0.5em 1em;
 			cursor: pointer;
 			transition: all ease-in-out 0.2s;
-			outline: none;
 
 			&.active {
 				background-color: rgba($blue, 1);
@@ -69,7 +68,12 @@
 
 	.projects-wrap {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		grid-template-columns: repeat(3, minmax(280px, 1fr));
 		gap: 40px;
+
+		@media screen and (max-width: $medium) {
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 20px;
+		}
 	}
 }

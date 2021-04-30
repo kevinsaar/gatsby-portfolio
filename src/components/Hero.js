@@ -42,25 +42,29 @@ const Hero = () => {
 					<h2>{name}</h2>
 					<h1>{title}</h1>
 					<p>
-						{shortDescription.shortDescription}{' '}
-						<Typical
-							steps={[
-								`${changingWords[0]}`,
-								3000,
-								`${changingWords[1]}`,
-								3000,
-								`${changingWords[2]}`,
-								3000,
-							]}
-							loop={Infinity}
-							wrapper='span'
-						/>
+						{shortDescription && shortDescription.shortDescription}{' '}
+						{changingWords && changingWords.length === 3 && (
+							<Typical
+								steps={[
+									`${changingWords[0]}`,
+									3000,
+									`${changingWords[1]}`,
+									3000,
+									`${changingWords[2]}`,
+									3000,
+								]}
+								loop={Infinity}
+								wrapper='span'
+							/>
+						)}
 					</p>
-					<SocialLinks
-						github={socialLinks.gitHub}
-						mail={socialLinks.email}
-						linkedIn={socialLinks.linkedIn}
-					/>
+					{socialLinks && (
+						<SocialLinks
+							github={socialLinks.gitHub}
+							mail={socialLinks.email}
+							linkedIn={socialLinks.linkedIn}
+						/>
+					)}
 				</div>
 			</div>
 		</section>

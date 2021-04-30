@@ -6,11 +6,11 @@ import Seo from '../../components/Seo';
 import '../../styles/projects.scss';
 
 const Projects = ({ data }) => {
-	const { description, title } = data.allContentfulAllProjectsPage.nodes[0];
-	const projects = data.allContentfulProject.nodes;
-	const categories = data.allContentfulCategory.nodes;
-
 	const [activeFilter, setActiveFilter] = useState('All');
+
+	const { description, title } = data.allContentfulAllProjectsPage.nodes[0];
+	const categories = data.allContentfulCategory.nodes;
+	const projects = data.allContentfulProject.nodes;
 
 	const filterButtons = categories.map((category) => (
 		<button
@@ -22,11 +22,15 @@ const Projects = ({ data }) => {
 		</button>
 	));
 
-	const projectsList = projects.map((project) => (
-		<li key={project.id}>
-			<ProjectCard project={project} key={project.id} />
-		</li>
-	));
+	const filteredProjectsList = projects
+		.filter((project) =>
+			project.categories.some((cat) => cat.title === activeFilter)
+		)
+		.map((project) => (
+			<li key={project.id}>
+				<ProjectCard project={project} key={project.id} />
+			</li>
+		));
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -47,7 +51,9 @@ const Projects = ({ data }) => {
 						</h2>
 						<p>{description}</p>
 						<div className='filter'>{filterButtons}</div>
-						<ul className='projects-wrap'>{projectsList && projectsList}</ul>
+						<ul className='projects-wrap'>
+							{filteredProjectsList && filteredProjectsList}
+						</ul>
 					</section>
 				</div>
 			</main>

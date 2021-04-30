@@ -77,8 +77,6 @@
 
 				li {
 					background-color: $blueLight;
-					color: $black;
-					font-size: 0.9em;
 					text-align: center;
 					padding: 5px 10px;
 					border-radius: 5px;
@@ -89,26 +87,21 @@
 					}
 
 					p {
+						font-size: 0.9em;
+						color: $black;
 						margin-bottom: 0;
 					}
 				}
 			}
 
 			a {
-				display: flex;
-				justify-self: end;
-				color: $white;
-				font-weight: 300;
-				text-decoration: none;
-				padding: 10px 20px;
-				border-radius: 5px;
-				background-color: rgba($blue, 0.95);
+				text-decoration-color: $blue;
+				color: $blueDark;
 				transition: all ease-out 0.15s;
 
 				&:hover {
+					color: $blue;
 					transition: all ease-out 0.15s;
-					background-color: rgba($blue, 1);
-					box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.15);
 				}
 			}
 		}
