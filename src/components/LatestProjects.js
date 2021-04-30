@@ -19,6 +19,7 @@ const LatestProjects = () => {
 							title
 							slug
 							projectSiteUrl
+							githubCodeUrl
 							logo {
 								gatsbyImageData(
 									placeholder: BLURRED

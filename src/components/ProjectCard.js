@@ -16,12 +16,14 @@ const ProjectCard = ({ project }) => {
 				image={project.featuredImage.gatsbyImageData}
 				alt={project.featuredImage.title}
 			/>
-			{project.logo && (
+			{project.logo ? (
 				<GatsbyImage
 					className='logo'
 					image={project.logo.gatsbyImageData}
 					alt={project.logo.title}
 				/>
+			) : (
+				<span className='nologo'>{project.title}</span>
 			)}
 			{categoriesList && <ul className='category'>{categoriesList}</ul>}
 			<figcaption>
@@ -35,9 +37,9 @@ const ProjectCard = ({ project }) => {
 						<AiOutlineEye />
 					</a>
 				)}
-				{project.githubCode && (
+				{project.githubCodeUrl && (
 					<a
-						href={project.githubCode}
+						href={project.githubCodeUrl}
 						target='_blank'
 						rel='noreferrer'
 						aria-label='Project code on GitHub'

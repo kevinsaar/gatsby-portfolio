@@ -79,8 +79,9 @@ export const query = graphql`
 				id
 				finishDate
 				projectSiteUrl
-				slug
+				githubCodeUrl
 				title
+				slug
 				logo {
 					gatsbyImageData(
 						placeholder: BLURRED
