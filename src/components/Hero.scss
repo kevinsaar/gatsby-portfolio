@@ -6,7 +6,6 @@
 	justify-content: flex-end;
 	text-align: left;
 	min-height: 100vh;
-	padding: 0 20px;
 	margin-bottom: clamp(5em, calc(3.5714em + 7.1429vw), 15em);
 
 	@media screen and (max-width: $medium) {
