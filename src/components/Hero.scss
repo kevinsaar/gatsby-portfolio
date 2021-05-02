@@ -60,9 +60,20 @@
 			color: $blueDark;
 			font-weight: 400;
 
+			@media screen and (max-width: $medium) {
+				color: $blueContrast;
+			}
+
 			&::after {
 				display: none;
 			}
+		}
+	}
+	.social-links a svg {
+		fill: $blueDark;
+
+		@media screen and (max-width: $medium) {
+			fill: $blue;
 		}
 	}
 }

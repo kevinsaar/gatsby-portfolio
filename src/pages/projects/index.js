@@ -74,7 +74,7 @@ export const query = graphql`
 				}
 			}
 		}
-		allContentfulProject(sort: { fields: finishDate }) {
+		allContentfulProject(sort: { fields: finishDate, order: DESC }) {
 			nodes {
 				id
 				finishDate

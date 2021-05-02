@@ -14,33 +14,36 @@ const LatestProjects = () => {
 							normal
 							colorful
 						}
-						latestProjects {
-							id
-							title
-							slug
-							projectSiteUrl
-							githubCodeUrl
-							logo {
-								gatsbyImageData(
-									placeholder: BLURRED
-									layout: FULL_WIDTH
-									formats: [AUTO, WEBP]
-								)
-								title
-							}
-							featuredImage {
-								title
-								gatsbyImageData(
-									placeholder: BLURRED
-									layout: FULL_WIDTH
-									formats: [AUTO, WEBP]
-								)
-							}
-							categories {
-								id
-								title
-							}
-						}
+					}
+				}
+			}
+			allContentfulProject(sort: { fields: finishDate, order: DESC }) {
+				nodes {
+					id
+					title
+					slug
+					finishDate
+					projectSiteUrl
+					githubCodeUrl
+					logo {
+						gatsbyImageData(
+							placeholder: BLURRED
+							layout: FULL_WIDTH
+							formats: [AUTO, WEBP]
+						)
+						title
+					}
+					featuredImage {
+						title
+						gatsbyImageData(
+							placeholder: BLURRED
+							layout: FULL_WIDTH
+							formats: [AUTO, WEBP]
+						)
+					}
+					categories {
+						id
+						title
 					}
 				}
 			}
@@ -52,8 +55,7 @@ const LatestProjects = () => {
 		latestProjectsTitle,
 	} = data.allContentfulHomepage.edges[0].node;
 
-	const latestProjects =
-		data.allContentfulHomepage.edges[0].node.latestProjects;
+	const latestProjects = data.allContentfulProject.nodes;
 
 	const latestProjectsList = latestProjects.map((project) => (
 		<li key={project.id}>

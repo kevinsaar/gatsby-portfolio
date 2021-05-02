@@ -72,8 +72,8 @@
 		gap: 40px;
 
 		@media screen and (max-width: $medium) {
-			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-			gap: 20px;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 10px;
 		}
 	}
 }
