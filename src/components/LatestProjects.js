@@ -6,7 +6,7 @@ import ProjectCard from './ProjectCard';
 const LatestProjects = () => {
 	const data = useStaticQuery(graphql`
 		query LatestProjects {
-			allContentfulHomepage {
+			allContentfulHomepage(sort: { fields: latestProjects___finishDate }) {
 				edges {
 					node {
 						allProjectsLink
@@ -14,36 +14,34 @@ const LatestProjects = () => {
 							normal
 							colorful
 						}
-					}
-				}
-			}
-			allContentfulProject(sort: { fields: finishDate, order: DESC }) {
-				nodes {
-					id
-					title
-					slug
-					finishDate
-					projectSiteUrl
-					githubCodeUrl
-					logo {
-						gatsbyImageData(
-							placeholder: BLURRED
-							layout: FULL_WIDTH
-							formats: [AUTO, WEBP]
-						)
-						title
-					}
-					featuredImage {
-						title
-						gatsbyImageData(
-							placeholder: BLURRED
-							layout: FULL_WIDTH
-							formats: [AUTO, WEBP]
-						)
-					}
-					categories {
-						id
-						title
+						latestProjects {
+							id
+							title
+							slug
+							finishDate
+							projectSiteUrl
+							githubCodeUrl
+							logo {
+								gatsbyImageData(
+									placeholder: BLURRED
+									layout: FULL_WIDTH
+									formats: [AUTO, WEBP]
+								)
+								title
+							}
+							featuredImage {
+								title
+								gatsbyImageData(
+									placeholder: BLURRED
+									layout: FULL_WIDTH
+									formats: [AUTO, WEBP]
+								)
+							}
+							categories {
+								id
+								title
+							}
+						}
 					}
 				}
 			}
@@ -55,7 +53,8 @@ const LatestProjects = () => {
 		latestProjectsTitle,
 	} = data.allContentfulHomepage.edges[0].node;
 
-	const latestProjects = data.allContentfulProject.nodes;
+	const latestProjects =
+		data.allContentfulHomepage.edges[0].node.latestProjects;
 
 	const latestProjectsList = latestProjects.map((project) => (
 		<li key={project.id}>
