@@ -25,10 +25,15 @@ exports.createPages = async ({ graphql, actions }) => {
 						)
 					}
 					description {
-						raw
+						childMarkdownRemark {
+							html
+						}
 					}
 					excerpt {
 						excerpt
+						childMarkdownRemark {
+							html
+						}
 					}
 					imageGallery {
 						gatsbyImageData(
@@ -36,6 +41,8 @@ exports.createPages = async ({ graphql, actions }) => {
 							layout: FULL_WIDTH
 							formats: [AUTO, WEBP]
 						)
+						title
+						id
 					}
 					finishDate
 					projectSiteUrl

@@ -38,5 +38,8 @@ module.exports = {
 				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 			},
 		},
+		{
+			resolve: `gatsby-transformer-remark`,
+		},
 	],
 };
