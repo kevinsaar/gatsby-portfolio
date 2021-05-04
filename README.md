@@ -1,1 +1,1 @@
-A simple portfolio site to show done work and experiment with Gatsby. Later add a headless CMS for content.
+A simple portfolio site done with Gatsby and Contentful.
